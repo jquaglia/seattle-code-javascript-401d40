@@ -53,8 +53,14 @@ class Book extends Tree {
 
   // searches our book for a paragraph based on he index provided ex: `1.1.1` => chapter 1, section 1, paragraph 1
   findParagraph(index) {
+    // console.log(index.split('.'));
+    let [chapter, section, paragraph] = index.split('.');
+    return this.root.children[chapter - 1].children[section - 1].children[paragraph - 1].value;
 
+    //BIG O(1)
   }
 }
+
+
 
 module.exports = Book;
